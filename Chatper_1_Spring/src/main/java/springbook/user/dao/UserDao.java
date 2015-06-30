@@ -6,20 +6,35 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
 import springbook.user.domain.User;
 
 public class UserDao {
-	//private SimpleConnectionMaker simpleConnectionMaker;
 	private ConnectionMaker connectionMaker;
-	
+	private DataSource dataSource;
+
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
+
+	/*
 	public UserDao(ConnectionMaker connectionMaker) {
-		//simpleConnectionMaker = new SimpleConnectionMaker();
 		this.connectionMaker = connectionMaker;
 	}
+	*/
 	
-	public void add(User user) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = connectionMaker.makeConnection(); 
+//	public void setConnectionMaker(ConnectionMaker connectionMaker) {
+//		this.connectionMaker = connectionMaker;
+//	}
+	
+	
+	
+	public void add(User user) throws SQLException {
+//		Class.forName("com.mysql.jdbc.Driver");
+//		Connection c = connectionMaker.makeConnection();
+		Connection c = dataSource.getConnection();
 		
 		
 		PreparedStatement ps = c.prepareStatement("INSERT INTO users(id, name, password) values(?,?,?)");
@@ -33,9 +48,16 @@ public class UserDao {
 		c.close();
 	}
 	
+	public ConnectionMaker getConnectionMaker() {
+		return connectionMaker;
+	}
+
+	
+
 	public User get(String id) throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = connectionMaker.makeConnection(); 
+//		Class.forName("com.mysql.jdbc.Driver");
+//		Connection c = connectionMaker.makeConnection(); 
+		Connection c = dataSource.getConnection();
 		
 		PreparedStatement ps = c.prepareStatement("SELECT * FROM users where id = ?");
 		ps.setString(1, id);
@@ -60,7 +82,7 @@ public class UserDao {
 		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "1234");
 		return c;
 	}
-	
+	/*
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		ConnectionMaker connectionMaker = new DConnectionMaker();
 		UserDao dao = new UserDao(connectionMaker);
@@ -81,5 +103,6 @@ public class UserDao {
 		
 		System.out.println(user2.getId() + " 조회성공");
 	}
+	*/
 }
 
