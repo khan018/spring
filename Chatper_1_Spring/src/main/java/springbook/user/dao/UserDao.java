@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
+
 import springbook.user.domain.User;
 
 public class UserDao {
@@ -17,25 +19,9 @@ public class UserDao {
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
-
-
-	/*
-	public UserDao(ConnectionMaker connectionMaker) {
-		this.connectionMaker = connectionMaker;
-	}
-	*/
-	
-//	public void setConnectionMaker(ConnectionMaker connectionMaker) {
-//		this.connectionMaker = connectionMaker;
-//	}
-	
-	
 	
 	public void add(User user) throws SQLException {
-//		Class.forName("com.mysql.jdbc.Driver");
-//		Connection c = connectionMaker.makeConnection();
 		Connection c = dataSource.getConnection();
-		
 		
 		PreparedStatement ps = c.prepareStatement("INSERT INTO users(id, name, password) values(?,?,?)");
 		ps.setString(1, user.getId());
@@ -52,57 +38,57 @@ public class UserDao {
 		return connectionMaker;
 	}
 
-	
-
 	public User get(String id) throws ClassNotFoundException, SQLException {
-//		Class.forName("com.mysql.jdbc.Driver");
-//		Connection c = connectionMaker.makeConnection(); 
 		Connection c = dataSource.getConnection();
 		
 		PreparedStatement ps = c.prepareStatement("SELECT * FROM users where id = ?");
 		ps.setString(1, id);
 		
 		ResultSet rs = ps.executeQuery();
-		rs.next();
-		User user = new User();
-		user.setId(rs.getString("id"));
-		user.setName(rs.getString("name"));
-		user.setPassword(rs.getString("password"));
+		
+		User user = null;
+		if(rs.next()) {
+			user = new User();
+			user.setId(rs.getString("id"));
+			user.setName(rs.getString("name"));
+			user.setPassword(rs.getString("password"));
+		}
 		
 		rs.close();
 		ps.close();
 		c.close();
 		
+		if(user == null) throw new EmptyResultDataAccessException(1);
+		
 		return user;
 		
 	}
+
+	public void deleteAll() throws SQLException {
+		Connection c = dataSource.getConnection();
+		
+		PreparedStatement ps = c.prepareStatement("DELETE FROM users");
+		ps.executeUpdate();
+		
+		ps.close();
+		c.close();		
+	}
 	
-	private Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/test", "root", "1234");
-		return c;
+	public int getCount() throws SQLException {
+		Connection c = dataSource.getConnection();
+		
+		PreparedStatement ps = c.prepareStatement("SELECT count(*) FROM users");
+		
+		ResultSet rs = ps.executeQuery();
+		rs.next();
+		int count = rs.getInt(1);
+		
+		rs.close();
+		ps.close();
+		c.close();
+		
+		return count;
+		
 	}
-	/*
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		ConnectionMaker connectionMaker = new DConnectionMaker();
-		UserDao dao = new UserDao(connectionMaker);
-		
-		User user = new User();
-		user.setId("whiteship");
-		user.setName("khan");
-		user.setPassword("married");
-		
-		dao.add(user);
-		
-		System.out.println(user.getId() + " 등록성공");
-		
-		User user2 = dao.get(user.getId());
-		
-		System.out.println(user2.getName());
-		System.out.println(user2.getPassword());
-		
-		System.out.println(user2.getId() + " 조회성공");
-	}
-	*/
 }
 
