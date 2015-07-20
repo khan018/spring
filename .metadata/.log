@@ -5082,3 +5082,356 @@ HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launc
 HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
 	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
 	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@31e32ea2),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@31e32ea2)),sourcePriority=16640)
+
+!ENTRY org.springframework.ide.eclipse.boot 4 0 2015-07-01 13:50:55.283
+!MESSAGE Bug: pops and pushes are out of whack!
+!STACK 0
+java.lang.IllegalArgumentException: Bug: pops and pushes are out of whack!
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$MyHandler.dispose(SpringBootTypeDiscovery.java:276)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:364)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:1)
+	at org.springframework.ide.eclipse.boot.util.RetryUtil.retry(RetryUtil.java:40)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.createGraph(SpringBootTypeDiscovery.java:354)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.getTypes(SpringBootTypeDiscovery.java:322)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.indexing.SimpleExternalTypeIndexer.addFrom(SimpleExternalTypeIndexer.java:73)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.ExternalTypeIndexManager$1.run(ExternalTypeIndexManager.java:97)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-07-01 14:04:12.100
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:649)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.read(FileReader.java:273)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.stream(RepositoryTransport.java:172)
+	at sun.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springsource.ide.eclipse.commons.internal.core.net.P2TransportService.stream(P2TransportService.java:139)
+	at org.springsource.ide.eclipse.commons.core.HttpUtil.stream(HttpUtil.java:165)
+	at org.springsource.ide.eclipse.dashboard.internal.ui.editors.AggregateFeedJob$1.run(AggregateFeedJob.java:145)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-01 14:05:03.120
+!MESSAGE NLS unused message: CacheManager_CannotLoadNonUrlLocation in: org.eclipse.equinox.internal.p2.repository.messages
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-07-01 14:05:03.126
+!MESSAGE Connection to http://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.read(FileReader.java:273)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.stream(RepositoryTransport.java:172)
+	at sun.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springsource.ide.eclipse.commons.internal.core.net.P2TransportService.stream(P2TransportService.java:139)
+	at org.springsource.ide.eclipse.commons.core.HttpUtil.stream(HttpUtil.java:165)
+	at org.springsource.ide.eclipse.dashboard.internal.ui.editors.AggregateFeedJob$1.run(AggregateFeedJob.java:145)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-07-01 14:10:03.132
+!MESSAGE Connection to https://spring.io/blog.atom failed on spring.io. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: spring.io
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:649)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.read(FileReader.java:273)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.stream(RepositoryTransport.java:172)
+	at sun.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springsource.ide.eclipse.commons.internal.core.net.P2TransportService.stream(P2TransportService.java:139)
+	at org.springsource.ide.eclipse.commons.core.HttpUtil.stream(HttpUtil.java:165)
+	at org.springsource.ide.eclipse.dashboard.internal.ui.editors.AggregateFeedJob$1.run(AggregateFeedJob.java:145)
+	at java.lang.Thread.run(Thread.java:745)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2015-07-01 14:10:03.339
+!MESSAGE Connection to http://dist.springsource.com/release/STS/doc/updates.xml failed on dist.springsource.com. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: dist.springsource.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.eclipse.ecf.provider.filetransfer.events.socket.SocketEventCreateUtil.createSocket(SocketEventCreateUtil.java:43)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:81)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:73)
+	at org.eclipse.ecf.internal.provider.filetransfer.httpclient.ECFHttpClientProtocolSocketFactory.createSocket(ECFHttpClientProtocolSocketFactory.java:65)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:707)
+	at org.apache.commons.httpclient.MultiThreadedHttpConnectionManager$HttpConnectionAdapter.open(MultiThreadedHttpConnectionManager.java:1361)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:387)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:171)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:397)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:346)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1129)
+	at org.eclipse.ecf.provider.filetransfer.httpclient.HttpClientRetrieveFileTransfer.openStreams(HttpClientRetrieveFileTransfer.java:699)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:879)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.AbstractRetrieveFileTransfer.sendRetrieveRequest(AbstractRetrieveFileTransfer.java:570)
+	at org.eclipse.ecf.provider.filetransfer.retrieve.MultiProtocolRetrieveAdapter.sendRetrieveRequest(MultiProtocolRetrieveAdapter.java:106)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:422)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.read(FileReader.java:273)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.stream(RepositoryTransport.java:172)
+	at sun.reflect.GeneratedMethodAccessor108.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.springsource.ide.eclipse.commons.internal.core.net.P2TransportService.stream(P2TransportService.java:139)
+	at org.springsource.ide.eclipse.commons.core.HttpUtil.stream(HttpUtil.java:165)
+	at org.springsource.ide.eclipse.dashboard.internal.ui.editors.AggregateFeedJob$1.run(AggregateFeedJob.java:145)
+	at java.lang.Thread.run(Thread.java:745)
+!SESSION 2015-07-01 19:34:28.430 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-01 19:34:32.699
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-01 19:34:39.458
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-01 19:34:39.459
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-07-01 19:34:44.105
+!MESSAGE The POM for org.springframework:spring-core:jar:3.2.3.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.springframework.ide.eclipse.boot 4 0 2015-07-01 19:41:05.344
+!MESSAGE Bug: pops and pushes are out of whack!
+!STACK 0
+java.lang.IllegalArgumentException: Bug: pops and pushes are out of whack!
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$MyHandler.dispose(SpringBootTypeDiscovery.java:276)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:364)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:1)
+	at org.springframework.ide.eclipse.boot.util.RetryUtil.retry(RetryUtil.java:40)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.createGraph(SpringBootTypeDiscovery.java:354)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.getTypes(SpringBootTypeDiscovery.java:322)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.indexing.SimpleExternalTypeIndexer.addFrom(SimpleExternalTypeIndexer.java:73)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.ExternalTypeIndexManager$1.run(ExternalTypeIndexManager.java:97)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.core 4 969 2015-07-01 19:41:15.570
+!MESSAGE import org.junit.ru [in <import container> [in [Working copy] UserDaoTest.java [in springbook.user.dao [in src/main/java [in Chatper_1_Spring]]]]] does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-07-01 19:44:06.359
+!MESSAGE The POM for org.springframework:spring-core:jar:3.2.3.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-07-01 19:46:08.875
+!MESSAGE The POM for org.springframework:spring-core:jar:3.2.3.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+!SESSION 2015-07-01 21:28:46.182 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-01 21:28:50.314
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-01 21:28:57.160
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-01 21:28:57.160
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-07-01 21:28:59.229
+!MESSAGE The POM for org.springframework:spring-core:jar:3.2.3.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+!SESSION 2015-07-01 22:24:02.365 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-01 22:24:06.390
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-01 22:24:13.363
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-01 22:24:13.364
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2015-07-01 22:24:15.289
+!MESSAGE The POM for org.springframework:spring-core:jar:3.2.3.RELEASE is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+!SESSION 2015-07-02 22:11:29.726 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-02 22:11:33.646
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-02 22:11:43.636
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-02 22:11:43.636
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@7e8a46b7)),sourcePriority=16640)
+
+!ENTRY org.springframework.ide.eclipse.boot 4 0 2015-07-02 22:23:06.269
+!MESSAGE Bug: pops and pushes are out of whack!
+!STACK 0
+java.lang.IllegalArgumentException: Bug: pops and pushes are out of whack!
+	at org.eclipse.core.runtime.Assert.isLegal(Assert.java:63)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$MyHandler.dispose(SpringBootTypeDiscovery.java:276)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:364)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery$1.call(SpringBootTypeDiscovery.java:1)
+	at org.springframework.ide.eclipse.boot.util.RetryUtil.retry(RetryUtil.java:40)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.createGraph(SpringBootTypeDiscovery.java:354)
+	at org.springframework.ide.eclipse.boot.completions.SpringBootTypeDiscovery.getTypes(SpringBootTypeDiscovery.java:322)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.indexing.SimpleExternalTypeIndexer.addFrom(SimpleExternalTypeIndexer.java:73)
+	at org.springsource.ide.eclipse.commons.completions.externaltype.ExternalTypeIndexManager$1.run(ExternalTypeIndexManager.java:97)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.jdt.core 4 969 2015-07-02 22:32:02.452
+!MESSAGE import org.junit.runner.JUnitCore#2 [in <import container> [in [Working copy] UserDaoTest.java [in springbook.user.dao [in src/main/java [in Chatper_1_Spring]]]]] does not exist
+!SESSION 2015-07-03 09:59:11.954 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-03 09:59:17.737
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-03 10:00:00.490
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-03 10:00:00.490
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@2fe88a09),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@2fe88a09)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@2fe88a09),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@2fe88a09)),sourcePriority=16640)
+!SESSION 2015-07-09 17:17:37.243 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-09 17:17:42.124
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-09 17:17:47.949
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-09 17:17:47.949
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@43cf6ea3),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@43cf6ea3)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@43cf6ea3),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@43cf6ea3)),sourcePriority=16640)
+!SESSION 2015-07-20 14:41:45.783 -----------------------------------------------
+eclipse.buildId=3.5.1.201405030657-RELEASE-e38
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ko_KR
+Framework arguments:  -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.springsource.sts.ide -keyring /Users/khan018/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2015-07-20 14:41:51.985
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-07-20 14:42:00.042
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-07-20 14:42:00.042
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@2d5ef498),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@2d5ef498)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@2d5ef498),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@2d5ef498)),sourcePriority=16640)
+
+!ENTRY org.eclipse.jdt.core 4 969 2015-07-20 15:14:29.103
+!MESSAGE import org.ham [in <import container> [in [Working copy] JUnitTest.java [in springbook.learningtest.junit [in src/main/java [in Chatper_1_Spring]]]]] does not exist

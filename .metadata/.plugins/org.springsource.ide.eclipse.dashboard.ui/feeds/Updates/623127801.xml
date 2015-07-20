@@ -59,7 +59,7 @@
 		<li bindent="3"><a href="http://docs.spring.io/sts/nan/v370/NewAndNoteworthy.html">3.7.0 New &amp; Noteworthy</a></li><p></p></form>]]></description>
         	<pubDate>Tue, 30 Jun 2015 12:12:33 +0100</pubDate>
 			<category>version=[0,3.7.0.201506251212-RELEASE)</category>
-<!--			<category>severity=important</category> -->
+			<category>severity=important</category>
 			<guid isPermaLink="false">sts-370-released</guid>
 		</item>
 
@@ -89,14 +89,14 @@
 		</item>
 -->
 		<item>
-			<title>Cloud Foundry Eclipse 1.8.2 released</title>
+			<title>Cloud Foundry Eclipse 1.8.3 released</title>
 			<link>http://www.cloudfoundry.com</link>
-            <description><![CDATA[<form><p><a href="http://pivotal.io">Pivotal</a> has released Cloud Foundry Eclipse version 1.8.2. New additions include integration with JRebel IDE, support for trusting self-signed certificates, and several fixes for manifest.yml and service creation. Java 7 is a required Execution Environment.</p></form>]]></description>
-			<pubDate>Sat, 16 May 2015 10:38:33 +0100</pubDate>
+            <description><![CDATA[<form><p><a href="http://pivotal.io">Pivotal</a> has released Cloud Foundry Eclipse version 1.8.3. New additions include improved support for Spring Boot deployment, "Link with Project/Unlink Project" feature changes, automatic detection of older JRE in STS/Eclipse (Java 7 is a minimum requirement to run Cloud Foundry Eclipse), and various bug fixes.</p></form>]]></description>
+			<pubDate>Mon, 29 Jun 2015 10:38:33 +0100</pubDate>
 <!--			<category>version=2.9.0</category> -->
-<!--			<category>severity=important</category> -->
+			<category>severity=important</category>
 			<category>bundle=!org.cloudfoundry.ide.eclipse.feature.group</category>
-			<guid isPermaLink="false">cloud-foundry-integration-182-released</guid>
+			<guid isPermaLink="false">cloud-foundry-integration-183-released</guid>
 		</item>
 
 <!--

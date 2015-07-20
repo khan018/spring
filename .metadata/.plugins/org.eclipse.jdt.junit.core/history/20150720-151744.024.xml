@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="JUnitTest.test3" project="Chatper_1_Spring" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="test3" classname="springbook.learningtest.junit.JUnitTest" time="0.0"/>
+</testrun>

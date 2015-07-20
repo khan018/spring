@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="UserDaoTest (1)" project="Chatper_1_Spring" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="springbook.user.dao.UserDaoTest" time="0.658">
+    <testcase name="count" classname="springbook.user.dao.UserDaoTest" time="0.618"/>
+    <testcase name="addAndGet" classname="springbook.user.dao.UserDaoTest" time="0.027"/>
+    <testcase name="getUserFailure" classname="springbook.user.dao.UserDaoTest" time="0.013"/>
+  </testsuite>
+</testrun>
