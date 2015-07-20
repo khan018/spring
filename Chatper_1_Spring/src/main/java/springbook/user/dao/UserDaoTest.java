@@ -1,33 +1,34 @@
 package springbook.user.dao;
 
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import java.sql.SQLException;
+
+import javax.sql.DataSource;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.JUnitCore;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.GenericApplicationContext;
-import org.springframework.context.support.GenericXmlApplicationContext;
-import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.datasource.SingleConnectionDataSource;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import springbook.user.domain.User;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="/applicationContext.xml")
+@DirtiesContext
 public class UserDaoTest {
 	@Autowired
-	private ApplicationContext context;
+	UserDao dao;
+	//private ApplicationContext context;
 	
-	private UserDao dao;
+	//private UserDao dao;
 	private User user1;
 	private User user2;
 	private User user3;
@@ -35,7 +36,9 @@ public class UserDaoTest {
 	@Before
 	public void setUp() {
 		//ApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
-		this.dao = context.getBean("userDao", UserDao.class);
+		//this.dao = context.getBean("userDao", UserDao.class);
+		DataSource dataSource = new SingleConnectionDataSource("jdbc:mysql://localhost/testdb", "root", "1234", true);
+		dao.setDataSource(dataSource);
 		
 		this.user1 = new User("whiteship1", "khan018", "married");
 		this.user2 = new User("whiteship2", "khan019", "married");
@@ -78,11 +81,11 @@ public class UserDaoTest {
 		
 	}
 	
-	@Test(expected=EmptyResultDataAccessException.class)
-	public void getUserFailure() throws ClassNotFoundException, SQLException {
-		dao.deleteAll();
-		assertThat(dao.getCount(), is(0));
-		
-		dao.get("unknown_id");
-	}
+//	@Test(expected=EmptyResultDataAccessException.class)
+//	public void getUserFailure() throws ClassNotFoundException, SQLException {
+//		dao.deleteAll();
+//		assertThat(dao.getCount(), is(0));
+//		
+//		dao.get("unknown_id");
+//	}
 }
